@@ -46,21 +46,21 @@ dfpreSIR <- function(df){
 }
 
 
-pDtopIA <- function(ipI,ipD,pI,pD){
-  return(((0.9-pI)/(-pD))*(ipD-pD)+pI)
-}
+#pDtopIA <- function(ipI,ipD,pI,pD){
+#  return(((0.9-pI)/(-pD))*(ipD-pD)+pI)
+#}
 
-pItopDA <- function(ipI,ipD,pI,pD){
-  return(((-pD)/(0.9-pI))*(ipI-pI)+pD)
-}
+#pItopDA <- function(ipI,ipD,pI,pD){
+#  return(((-pD)/(0.9-pI))*(ipI-pI)+pD)
+#}
 
-pDtopIM <- function(ipI,ipD,pI,pD){
-  return(exp((log(0.9)-log(pI))/(-pD))*(ipD-pD)+log(pI))
-}
+#pDtopIM <- function(ipI,ipD,pI,pD){
+#  return(exp((log(0.9)-log(pI))/(-pD))*(ipD-pD)+log(pI))
+#}
 
-pItopDM <- function(ipI,ipD,pI,pD){
-  return(((-pD)/(log(0.9)-log(pI)))*(log(ipI)-log(pI))+pD)
-}
+#pItopDM <- function(ipI,ipD,pI,pD){
+#  return(((-pD)/(log(0.9)-log(pI)))*(log(ipI)-log(pI))+pD)
+#}
 
 # muta<- function(ipI,ipD,pI,pD,rR,mfit,mfit2,pIM,pDM,pC,pIMB,pDMB,funmut){
 #   if(rbinom(1,1,pC) == 1){
