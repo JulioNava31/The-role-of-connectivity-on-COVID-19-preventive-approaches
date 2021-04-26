@@ -14,6 +14,8 @@ codedir <- '/N/project/Covid/scr/'
 source(paste0(codedir,'covidcontrol.R'))
 Rcpp::sourceCpp(paste0(codedir,"Block.cpp"))
 
+# SIRD curves adding mean probability of infection at each time
+
 act <- function(i,dfsir,df,ncl){
   if(df[i,1] == 'R'){
     indx <- 3
@@ -91,6 +93,10 @@ dfpreSIR <- function(df){
 #   }
 #   return(funmut(mutPI,mutS,ipI,ipD,pI,pD,rR,mfit,mfit2))
 # }
+
+# Mutate probability of infection and death
+# if pIMB is equal to 'B' then two types of mutations are allowed 
+#         infectivity + letality - / infectivity - letality +
 
 muta<- function(ipI,ipD,pI,pD,rR,mfit,mfit2,pIM,pDM,pC,pIMB,pDMB,funmut){
   if(rbinom(1,1,pC) == 1){
