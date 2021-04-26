@@ -1,3 +1,15 @@
+### Mutation 
+# Parameters 
+# mfit: step mutation probability of infection
+# mfit2: step mutation probability of death
+# pIM: probability to mutate the probability of infection
+# pDM: probability to mutate the probability of death
+# pC: correlation values in [0,1]
+# pIMB: probablity to increase/decrease probability of infection
+# pDMB: probablity to increase/decrease probability of death
+
+# Right now we are only considering the aditive scenario in which you increase/deacrease one step of size mfit, mfit2 per mutation event
+
 codedir <- '/N/project/Covid/scr/'
 source(paste0(codedir,'covidcontrol.R'))
 Rcpp::sourceCpp(paste0(codedir,"Block.cpp"))
@@ -121,7 +133,7 @@ funmutA<-function(mutPI,mutS,ipI,ipD,pI,pD,rR,mfit,mfit2){
 # }
 
 covid_mut <- function(M,mc,N,d,lamb,pD,rR,pI,t,q,nIs,pre,ij,
-                      mfit,pIM,pDM,pC,pIMB,pDMB,funmut,mut){
+                      mfit,mfit2,pIM,pDM,pC,pIMB,pDMB,funmut,mut){
   hiaux <- c()
   while (T) {
     if(lamb > 0){
@@ -243,7 +255,7 @@ covid_mut <- function(M,mc,N,d,lamb,pD,rR,pI,t,q,nIs,pre,ij,
 }
 
 COVID_muta <- function(M,mc,N,d,lamb,pD,rR,pI,t,q,nIs,pre,
-                       mfit,pIM,pDM,pC,pIMB,pDMB,funmut,mut){
+                       mfit,mfit2,pIM,pDM,pC,pIMB,pDMB,funmut,mut){
   dir.create(paste0(pre,N),showWarnings = F)
   dir.create(paste0(pre,N,'/M_',mut,'_',pC,'_',pIM,'_',pDM,'_',pIMB,'_',pDMB))
   dir.create(paste0(pre,N,'/M_',mut,'_',pC,'_',pIM,'_',pDM,'_',pIMB,'_',pDMB,'/','HI'))
